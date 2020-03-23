@@ -1,17 +1,17 @@
-def count_var():
-    lines = open("dna.txt").readlines()
-    f , var = lines[0], lines[1]
-    wdw = len(var)
+def PatternCount(text, pattern):
+    wdw = len(pattern)
     count = 0
 
-    for i in range(len(f) - wdw + 1):
-        if f[i:i+wdw] == var:
+    for i in range(len(text) - wdw + 1):
+        if text[i:i+wdw] == pattern:
             count += 1
 
-    return var, count
+    return count
 
-print(count_var())
-    
 
-    
+if __name__ == "__main__":
+    lines = open("dna.txt").readlines()
+    text , pattern = lines[0], lines[1]
+    print(f"Pattern: {pattern} Frequency:", PatternCount(text, pattern))
 
+    pass
