@@ -1,5 +1,5 @@
 from HammingDistance import HammingDistance
-from ApproximatePatternCount import *
+#from ApproximatePatternCount import *
 from Neighbors import Neighbors
 
 dic = {"A": "0", "C": "1", "G": "2", "T": "3"}
@@ -92,11 +92,6 @@ def FrequentWordsMismatches_Reverse(text, k, d):
             
     return res
     
-def FrequentWordsMismathComplement(text, k, d):
-    n = len(text)
-    
-    
-    pass
 if __name__ == "__main__":
     dna = "CTTGCCGGCGCCGATTATACGATCGCGGCCGCTTGCCTTCTTTATAATGCATCGGCGCCGCGATCTTGCTATATACGTACGCTTCGCTTGCATCTTGCGCGCATTACGTACTTATCGATTACTTATCTTCGATGCCGGCCGGCATATGCCGCTTTAGCATCGATCGATCGTACTTTACGCGTATAGCCGCTTCGCTTGCCGTACGCGATGCTAGCATATGCTAGCGCTAATTACTTAT"
     #dna = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
