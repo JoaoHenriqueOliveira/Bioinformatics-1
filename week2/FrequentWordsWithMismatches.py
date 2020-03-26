@@ -75,6 +75,7 @@ def FrequentWordsWithMismatches(text, k, d):
             res.append(Number2Pattern(i, k))
     
     return res
+
 if __name__ == "__main__":
     
     t = FrequentWordsWithMismatches("ACGTTGCATGTCGCATGATGCATGAGAGCT", 4, 1)
