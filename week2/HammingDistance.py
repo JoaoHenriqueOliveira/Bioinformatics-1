@@ -1,4 +1,5 @@
 def HammingDistance(text1, text2):
+    #Compute the Hamming distance between two strings.
     n = len(text1)
     if n != len(text2):
         print("Invalid input!")

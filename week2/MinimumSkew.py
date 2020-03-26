@@ -1,6 +1,8 @@
-from week2.skew import skew
+from skew import skew
 
 def MinimumSkew(genome):
+    #Find a position in a genome minimizing the skew.
+    #Output: All integer(s) i minimizing Skewi (Genome) among all values of i (from 0 to |Genome|).
     diff = skew(genome)
     aux = min(diff)
     positions = []
@@ -13,12 +15,13 @@ def MinimumSkew(genome):
 
 if __name__ == "__main__":
     
-    file = open("test.txt").readlines()
-    genome = file[0]
-    vec = MinimumSkew(genome)
-    
-    for pos in vec:
-        print(pos, end = ' ')
+    #file = open("test.txt").readlines()
+    #genome = file[0]
+    #vec = MinimumSkew(genome)
+    dna = "TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT"
+    print(MinimumSkew(dna))
+    #for pos in vec:
+     #   print(pos, end = ' ')
     print()
     pass
 
