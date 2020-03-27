@@ -54,11 +54,11 @@ if __name__ == "__main__":
     #print(ImmediateNeighbors(p))
     #print(p)
     #print(Suffix(p))
-    p = "AAA"
-    tmp = Neighbors(p, 1)
+    p = "ACGT"
+    tmp = Neighbors(p, 3)
     
     #for elem in tmp:
     #    print(elem, end = ' ')
+    print(len(tmp))
     print(tmp)
-    
     pass

@@ -61,10 +61,11 @@ def ComputingFrequenciesWithMismatches(text, k, d):
          
     return frequency_array
 
+#uuseful for d = 1 or 2 anf k up to 9
 def FrequentWordsWithMismatches(text, k, d):
     #Find the most frequent k-mers with mismatches in a string
     #Input: A string text as well as integers k and d
-    #Output: All most frequent k-mers with up to d mismatches in Text.
+    #Output: All most frequent k-mers with up to d mismatches in text.
     frequency_array = ComputingFrequenciesWithMismatches(text, k, d)
     max_count = max(frequency_array)
     cases = 4 ** k

@@ -18,7 +18,7 @@ if __name__ == "__main__":
     #file = open("test.txt").readlines()
     #genome = file[0]
     #vec = MinimumSkew(genome)
-    dna = "TAAAGACTGCCGAGAGGCCAACACGAGTGCTAGAACGAGGGGCGTAAACGCGGGTCCGAT"
+    dna = "CATTCCAGTACTTCGATGATGGCGTGAAGA"
     print(MinimumSkew(dna))
     #for pos in vec:
      #   print(pos, end = ' ')

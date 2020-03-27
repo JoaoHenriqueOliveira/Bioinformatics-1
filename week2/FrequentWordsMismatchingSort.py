@@ -46,7 +46,9 @@ def Number2Pattern(nbr, k): # nbr -> base 10
     
     return ''.join(res)
 
+#useful for d = 1 or 2 anf k up to 9
 def FrequentWordsMismatchingSort(text, k, d):
+    ##Output: All most frequent k-mers with up to d mismatches in text
     frequent_patterns = []
     neighborhood = []
     n = len(text)
