@@ -62,7 +62,8 @@ def MedianString(dna, k): #Output: String with minimum distance to a given dna
 
 if __name__ == "__main__":
     k = 7
-    #dna = ["AAATTGACGCAT","GACGACCACGTT","CGTCAGCGCCTG","GCTGAGCACCGG","AGTTCGGGACAG"]
     dna = ["CTCGATGAGTAGGAAAGTAGTTTCACTGGGCGAACCACCCCGGCGCTAATCCTAGTGCCC","GCAATCCTACCCGAGGCCACATATCAGTAGGAACTAGAACCACCACGGGTGGCTAGTTTC","GGTGTTGAACCACGGGGTTAGTTTCATCTATTGTAGGAATCGGCTTCAAATCCTACACAG"]
-    print(MedianString(dna, k))
+    
+    print(f"Median String: {MedianString(dna, k)}, k = {k}")
+    
     pass

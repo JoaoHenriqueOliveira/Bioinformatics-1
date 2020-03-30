@@ -19,7 +19,7 @@ def DistanceBetweenPatternAndString(pattern, dna): #Computes d(Pattern, Dna) = â
 if __name__ == "__main__":
     #dna = ["TTACCTTAAC", "GATATCTGTC", "ACGGCGTTCG", "CCCTAAAGAG", "CGTCAGAGGT"]
     #pattern = "AAA"
-    f = open("test.txt", "r").readlines()
+    f = open("data/test.txt", "r").readlines()
     pattern = "".join(f[0][:-1])
     print(pattern)
     Dna = []

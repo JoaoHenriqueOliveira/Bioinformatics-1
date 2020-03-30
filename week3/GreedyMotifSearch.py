@@ -1,14 +1,11 @@
 from Profile import *
 
-def InitializeMotifs(dna, k):
-    motifs = []
-    
-    for string in dna:
-        motifs.append(string[0:k])
-    
+def InitializeMotifs(dna, k): #Creates a motif matrix from the first pattern with each string in dna
+    motifs = [string[0:k] for string in dna]
+
     return motifs
 
-def GreedyMotifSearch(k, t, dna): #Find the best motifs by greedly constructing the profile matrix
+def GreedyMotifSearch(k, t, dna): #Find the best motif matrix by greedly constructing the profile matrix
     best_motifs = InitializeMotifs(dna, k)
     n = len(dna[0])
     
@@ -37,22 +34,20 @@ def test_InitializeMotifs():
     pass
 
 if __name__ == "__main__":
-    #test_InitializeMotifs()
-    
-    #dna = ["GGCGTTCAGGCA","AAGAATCAGTCA","CAAGGAGTTCGC","CACGTCAATCAC","CAATAATATTCG"]
     lines = open("data/test.txt", "r").readlines()
     
     k = int(lines[0][0:2])
     t = int(lines[0][3:5])
-    print(k,t)
-    dna = []
+    print(f"k = {k}, t = {t}")
     
-    for i in range(t):
-        dna.append(lines[i+1][:-1])
+    dna = [lines[i+1][:-1] for i in range(t)]
     
     output = GreedyMotifSearch(k,t, dna)
+    
+    print("k-mers in the Greedy Motif Matrix: ")
     
     for elem in output:
         print(elem, end = ' ')
     print()
+    
     pass

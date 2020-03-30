@@ -100,11 +100,16 @@ def motif_enum(dna, k, d):
 if __name__ == "__main__":
     dna = ["ATTTGGC", "TGCCTTA", "CGGTATC", "GAAAATT"]
     k = 3
-    d = 0
+    d = 1
+    
+    print(f"DNA: {dna}")
+    print(f"k = {k}, d = {d}")
+    
     res = MotifEnumeration(dna, k, d)
     res2 = motif_enum(dna, k, d)
     for val in res:
         print(val, end = " ")
     print()
+    
     print(res2)
     pass
