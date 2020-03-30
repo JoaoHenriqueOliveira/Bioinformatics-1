@@ -35,7 +35,6 @@ def MakeProfile(motif, laplace = True): #Input: list of motifs -> Output: profil
     
         return profile
 
-
 def Score(motif): #Input: motif matrix -> Output: the score function for the given matrix
     score = 0 
     t, k = len(motif), len(motif[0])
@@ -156,21 +155,23 @@ if __name__ == "__main__":
     #dna = ["CGCCCCTCTCGGGGGTGTTCAGTAAACGGCCA","GGGCGAGGTATGTGTAAGTGCCAAGGTGCCAG","TAGTACCGAGACCGAAAGAAGTATACAGGCGT","TAGATCAAGTTTCAGGTGCACGTCGGTGAACC","AATCCACCAGCTCCACGTGCAATGTTGGCCTA"]
     #k = 8
     #t = 5
-    lines = open("RandomizedMotifSearch.txt", "r").readlines()
-    k = int(lines[0][0:2])
-    t = int(lines[0][3:5])
-    print(k, t)
-    dna = []
-    for i in range(t):
-        string = lines[i + 1][:-1]
-        dna.append(string)
+    #lines = open("RandomizedMotifSearch.txt", "r").readlines()
+    #k = int(lines[0][0:2])
+    #t = int(lines[0][3:5])
+    #print(k, t)
+    dna = ["ATGAGGTC", "GCCCTAGA", "AAATAGAT","TTGTGCTA"]
+    #for i in range(t):
+    #    string = lines[i + 1][:-1]
+    #    dna.append(string)
         
-    res = Simulate(dna, k, t, 1000)
-    for elem in res:
-        print(elem)
-    print()
-    print(Score(res))
+    #res = Simulate(dna, 3, t, 1000)
+    #for elem in res:
+    #    print(elem)
+    #print()
+    #print(Score(res))
     
+    motif = ["GTC","CCC","ATA","GCT"]
+    print(Motifs(MakeProfile(motif),3,dna))    
     #test_create_random_motif()
 
     pass
