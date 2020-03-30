@@ -68,7 +68,7 @@ def FrequentNucleotide(motif): #Input: motif matrix -> Output: list of most freq
     
     return consensus_string
 
-def CalculateProbability(pattern, profile):
+def CalculateProbability(pattern, profile): #returns IP(pattern | profile)
     p = 1
     index = 0
 
@@ -100,7 +100,6 @@ def test_Laplacce():
     pass
 
 def Test_makeProfile():
-    #motif = ["ACTG", "ATTC", "CCTT"]
     dna = ["CTCGATGAGTAGGAAAGTAGTTTCACTGGGCGAACCACCCCGGCGCTAATCCTAGTGCCC","GCAATCCTACCCGAGGCCACATATCAGTAGGAACTAGAACCACCACGGGTGGCTAGTTTC","GGTGTTGAACCACGGGGTTAGTTTCATCTATTGTAGGAATCGGCTTCAAATCCTACACAG"]
     for elem in MakeProfile(dna):
         print(elem)
@@ -117,39 +116,29 @@ def test_score():
     print(Score(motif))
     pass
 
-if __name__ == "__main__":
+if __name__ == "__main__":   
+    file = open("data/profile.txt", "r").readlines()   
+    text, k, profile = "".join(file[0][:-1]), int(file[1][:-1]), []
+     
+    print(f"text: {text[0:10]}...{text[-5:]}\nk = {k}")
+    print("Profile:")
     
-    #profile =[[0.2, 0.2, 0.3, 0.2, 0.3],
-     #         [0.4, 0.3, 0.1, 0.5, 0.1],
-      #        [0.3, 0.3, 0.5, 0.2, 0.4],
-       #       [0.1, 0.2, 0.1, 0.1, 0.2]]
+    for i in range(4):
+        val = []
+        x = ''
+        for symbol in file[i + 2]:
+            if symbol != " " and symbol != "\n":
+                x += symbol   
+            else:
+                val.append(float("".join(x)))  
+                x = '' 
+        profile.append(val) 
     
-    #text = "ACCTGTTTATTGCCTAAGTTCCGAACAAACCCAATATAGCCCGAGGGCCT"
-    #k = 5
+    for line in profile:
+        print(line)
     
-    #file = open("profile.txt", "r").readlines()
-    
-    #text = "".join(file[0][:-1])
-    #k = int(file[1][:-1])
-    #profile = []
-    
-    #for i in range(4):
-    #    val = []
-    #    x = ''
-    #    for symbol in file[i + 2]:
-    #        if symbol != " " and symbol != "\n":
-    #            x += symbol   
-    #        else:
-    #            val.append(float("".join(x)))  
-    #            x = '' 
-    #    profile.append(val) 
-    
-    #pattern = ProfileMostProbable(text, k, profile)
-    #print(pattern)
-    #print(CalculateProbability(pattern, profile))
-    #test_frequent_nucleotide()
-    #test_score()
-    Test_makeProfile()
-    #test_Laplacce()
+    pattern = ProfileMostProbable(text, k, profile)
+    print(f"Pattern Most Probable: {pattern}\n")
+    print(f"Probability for this patterns given the profile: {CalculateProbability(pattern, profile)}")
     
     pass

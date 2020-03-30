@@ -40,7 +40,7 @@ if __name__ == "__main__":
     #test_InitializeMotifs()
     
     #dna = ["GGCGTTCAGGCA","AAGAATCAGTCA","CAAGGAGTTCGC","CACGTCAATCAC","CAATAATATTCG"]
-    lines = open("test.txt", "r").readlines()
+    lines = open("data/test.txt", "r").readlines()
     
     k = int(lines[0][0:2])
     t = int(lines[0][3:5])
