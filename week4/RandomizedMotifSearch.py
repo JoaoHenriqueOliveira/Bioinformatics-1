@@ -1,7 +1,7 @@
 from random import randint
 dic = {"A": 0, "C": 1, "G": 2, "T": 3}
 
-def get_key(val):
+def get_key(val): #A method for finding the key of "dic" given a suitable value
     
     for key, value in dic.items():
         if val == value:
@@ -9,7 +9,7 @@ def get_key(val):
     return "key doesn't exits!"
 
 def MakeProfile(motif, laplace = True): #Input: list of motifs -> Output: profile matrix
-    if laplace:
+    if laplace: #uses pseudocount, ie sums a ones matrix and then normalize the probabilities (to avoid 0 or 1 as final values)
         t, k = len(motif), len(motif[0])
         cte = t + 4
         profile = [[1.0 for i in range(k)] for i in range(4)]
@@ -68,7 +68,7 @@ def FrequentNucleotide(motif): #Input: motif matrix -> Output: list of most freq
                    
     return consensus_string
 
-def CalculateProbability(pattern, profile):
+def CalculateProbability(pattern, profile): #Output: IP(pattern | profile)
     p = 1
     index = 0
 
@@ -113,7 +113,9 @@ def CreateRdmMotif(dna, k, t): #Creates random motif matrix for the given dna
                 
     return motif
 
-def RandomizedMotifSearch(dna, k, t): 
+def RandomizedMotifSearch(dna, k, t): #Iteratively computes the motif and profile matrixs until the Score function is smaller than a random one
+    #Converges due to the biased estimation of the most frequent pattern
+    #Output: motif matrix (the best set of k-mers the algorithm finds)
     best_motifs = CreateRdmMotif(dna, k, t)  
     motifs = best_motifs
     best_score = Score(best_motifs)
@@ -152,26 +154,20 @@ def test_create_random_motif():
     pass
 
 if __name__ == "__main__":
-    #dna = ["CGCCCCTCTCGGGGGTGTTCAGTAAACGGCCA","GGGCGAGGTATGTGTAAGTGCCAAGGTGCCAG","TAGTACCGAGACCGAAAGAAGTATACAGGCGT","TAGATCAAGTTTCAGGTGCACGTCGGTGAACC","AATCCACCAGCTCCACGTGCAATGTTGGCCTA"]
-    #k = 8
-    #t = 5
-    #lines = open("RandomizedMotifSearch.txt", "r").readlines()
-    #k = int(lines[0][0:2])
-    #t = int(lines[0][3:5])
-    #print(k, t)
-    dna = ["ATGAGGTC", "GCCCTAGA", "AAATAGAT","TTGTGCTA"]
-    #for i in range(t):
-    #    string = lines[i + 1][:-1]
-    #    dna.append(string)
-        
-    #res = Simulate(dna, 3, t, 1000)
-    #for elem in res:
-    #    print(elem)
-    #print()
-    #print(Score(res))
+    lines = open("data/RandomizedMotifSearch.txt", "r").readlines()
+    k = int(lines[0][0:2])
+    t = int(lines[0][3:5])
+    print(f"k = {k}, t = {t}")
+    dna = []
     
-    motif = ["GTC","CCC","ATA","GCT"]
-    print(Motifs(MakeProfile(motif),3,dna))    
-    #test_create_random_motif()
-
+    for i in range(t):
+        string = lines[i + 1][:-1]
+        dna.append(string)
+        
+    res = Simulate(dna, k, t, 1000)
+    for elem in res:
+        print(elem)
+    print()
+    
+    print(Score(res))
     pass
