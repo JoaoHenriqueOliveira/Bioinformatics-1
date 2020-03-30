@@ -54,15 +54,16 @@ def ApproximatePatternCount(text, pattern, d): #Output: Count_{d}(Text, pattern)
             
     return count
 
-def MotifEnumeration(dna, k, d):
-    patterns = []
+def MotifEnumeration(dna, k, d): #Exhaustif Search
+    patterns = [] #Output: all (k, d)-motifs in dna
     N = len(dna) #number of strings in dna
     n = len(dna[0])
     
     for i in range(N):
         for l in range(n - k + 1):
-            k_mer = dna[i][l:l + k]
+            k_mer = dna[i][l:l + k]                
             neighborhood = Neighbors(k_mer, d) #list of k-mers that at at most d units appart from the subsequence of the dna.
+            
             for elem in neighborhood:
                 aux = True
                 for j in range(N):
@@ -75,14 +76,35 @@ def MotifEnumeration(dna, k, d):
     
     return patterns
 
-if __name__ == "__main__":
-    dna = ["GGTCGGAACGAAGTGCGGAGAGAAG", "AGCAGGTGAGGGCCCGCTCGTGCGA", "GTTCGCAACGAGAAGCTGTATTTGC", "ACCGTGGTCGGATAACCCCCCTTCC", "TATGAGCTCGTTGACCGTTCTAAAT", "GTTCGAATGGCATGGCACCACGCGA"]
-    k = 5
-    d = 1
-    res = MotifEnumeration(dna, k, d)
+def motif_enum(dna, k, d):
+    patterns = []
+    N = len(dna) #number of strings in dna
+    n = len(dna[0])
     
+    for i in range(n - k + 1):
+        pattern = dna[0][i:i + k]
+        nei = Neighbors(pattern, d)
+        
+        for elem in nei:
+            aux = True
+            for j in range(1, N):
+                if ApproximatePatternCount(dna[j], elem, d) == 0:
+                    aux = False
+            if aux and len(elem) != 1:
+                patterns.append(elem)
+                
+    patterns = list(set(patterns))
+    
+    return patterns
+
+if __name__ == "__main__":
+    dna = ["ATTTGGC", "TGCCTTA", "CGGTATC", "GAAAATT"]
+    k = 3
+    d = 0
+    res = MotifEnumeration(dna, k, d)
+    res2 = motif_enum(dna, k, d)
     for val in res:
         print(val, end = " ")
     print()
-    #print(dna[0][0:5])
+    print(res2)
     pass
