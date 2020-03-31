@@ -60,21 +60,11 @@ def ComputingFrequencies(genome, k):
 
 if __name__ == "__main__":
     
-    #number_4 = Pattern2Number("TCCTAAAACAGGCACG")
-    #number_10 = base4_to_base10(number_4)
+    number_4 = Pattern2Number("TCCTAAAACAGGCACG")
+    number_10 = base4_to_base10(number_4)
     
-    #print(number_4)
-    #print(number_10) #912
-    print(Number2Pattern(6628, 10)) #ATGCAA
-    #lines = open("dataset_2994_5.txt").readlines()
-    #genome, k = lines[0].replace("\n", ""), int(lines[1])
+    print(f"Expected: 3113000010221012 --- Result:{number_4}") 
+    print(f"Expected: 3607120454 --------- Result:{number_10}")
+    print(f"Expected: TCCTAAAACAGGCACG --- Result:{Number2Pattern(3607120454, 16)}")
     
-    #frequency = ComputingFrequencies(genome, k)
-    
-    #print(frequency)
-    #f = open("test.txt", "w")
-    
-    #for freq in frequency:
-    #    f.write(str(freq) + " ")
-    #f.close()
     pass

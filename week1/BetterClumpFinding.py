@@ -33,24 +33,21 @@ def BetterClumpFinding(genome, k, L, t):
     return frequent_patterns
 
 if __name__ == "__main__":
-    e_coli = open("e_coli.txt", "r")
+    e_coli = open("data/e_coli.txt", "r") 
     
     dna = e_coli.readline()
     k = 9
     L = 500
     t = 3
-    print(len(dna))
+    print(f"Size of DNA: {len(dna)}")
     
     res = BetterClumpFinding(dna, k, L, t)
-    print("********************")
-    #print(ClumpFindingProblem(genome, k, L, t))
-    test = open("test.txt", "w")
     
     for item in res:
-        test.write(item + " ")
+        print(res, end = ' ')
         
-    test.close()
     e_coli.close()
+    
     print(f"{k}-mers in E. coli genome: {len(res)}")
-    print(0)
+    
     pass

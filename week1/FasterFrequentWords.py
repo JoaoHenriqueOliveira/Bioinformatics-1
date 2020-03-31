@@ -1,6 +1,6 @@
 from ComputingFrequencies import ComputingFrequencies, Number2Pattern
 
-def FasterFrequentWords(genome, k):
+def FasterFrequentWords(genome, k): #Calculate the most frequent k-mers in genome
     #Calcula os paterns (words no genoma) mais frequentes de maneira eficiente    
     frequent_patterns = []
     frequency_array = ComputingFrequencies(genome, k)

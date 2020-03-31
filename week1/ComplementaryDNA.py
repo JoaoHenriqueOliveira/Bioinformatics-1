@@ -11,12 +11,8 @@ def ComplementaryDNA(text):
 
 if __name__=="__main__":
     
-    #text_file = open("dna3.txt")
-    #text = text_file.readlines()[0]
     text = "GATTACA"
     res = ComplementaryDNA(text)
 
     print(res)
-    
-    #text_file.close()
     pass
