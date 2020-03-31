@@ -14,14 +14,13 @@ def MinimumSkew(genome):
     return positions 
 
 if __name__ == "__main__":
+    file = open("data/test.txt").readlines()
+    genome = file[0]
+    vec = MinimumSkew(genome)
     
-    #file = open("test.txt").readlines()
-    #genome = file[0]
-    #vec = MinimumSkew(genome)
-    dna = "CATTCCAGTACTTCGATGATGGCGTGAAGA"
-    print(MinimumSkew(dna))
-    #for pos in vec:
-     #   print(pos, end = ' ')
+    for pos in vec:
+        print(pos, end = ' ')
     print()
+    
     pass
 

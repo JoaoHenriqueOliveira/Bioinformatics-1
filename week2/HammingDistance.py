@@ -1,5 +1,5 @@
 def HammingDistance(text1, text2):
-    #Compute the Hamming distance between two strings.
+    #Compute the Hamming distance between two strings, ie, numbers of different chars in each text
     n = len(text1)
     if n != len(text2):
         print("Invalid input!")
@@ -14,8 +14,8 @@ def HammingDistance(text1, text2):
     
 if __name__ == "__main__":
     
-    text1 = "CAGAAAGGAAGGTCCCCATACACCGACGCACCAGTTTA"
-    text2 = "CACGCCGTATGCATAAACGAGCCGCACGAACCAGAGAG"
+    text1 = "GGGCCGTTGGT"
+    text2 = "GGACCGTTGAC"
     
-    print(HammingDistance(text1, text2))
+    print(HammingDistance(text1, text2)) #3
     pass

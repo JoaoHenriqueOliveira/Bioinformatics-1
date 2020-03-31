@@ -2,7 +2,7 @@ from MinimumSkew import MinimumSkew
 from FrequentWordsMismatches_Reverse import FrequentWordsMismatches_Reverse
 
 if __name__ == "__main__":
-    lines = open("salmonella.txt", "r").readlines()
+    lines = open("data/salmonella.txt", "r").readlines()
     genome = ''
     
     for line in lines:

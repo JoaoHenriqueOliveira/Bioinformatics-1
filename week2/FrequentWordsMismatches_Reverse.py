@@ -46,12 +46,10 @@ def FrequentWordsMismatches_Reverse(text, k, d):
     return res
     
 if __name__ == "__main__":
-    dna = "CTTGCCGGCGCCGATTATACGATCGCGGCCGCTTGCCTTCTTTATAATGCATCGGCGCCGCGATCTTGCTATATACGTACGCTTCGCTTGCATCTTGCGCGCATTACGTACTTATCGATTACTTATCTTCGATGCCGGCCGGCATATGCCGCTTTAGCATCGATCGATCGTACTTTACGCGTATAGCCGCTTCGCTTGCCGTACGCGATGCTAGCATATGCTAGCGCTAATTACTTAT"
-    #dna = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
-    k = 9
-    d = 3
-    p1 = FrequentWordsMismatches_Reverse(dna, k, d)
-    #print(FrequentWordsMismatches_Reverse(dna, k, d))
+    dna = "ACGTTGCATGTCGCATGATGCATGAGAGCT"
+    k = 4
+    d = 1
+    p1 = FrequentWordsMismatches_Reverse(dna, k, d) #ACAT ATGT
     
     for tmp in p1:
         print(tmp, end = ' ')

@@ -1,6 +1,8 @@
 from HammingDistance import HammingDistance
 
-def ApproximatePatternMatching(pattern, text, d):
+#Approximate Pattern Matching Problem: Find all approximate occurrences of a pattern in a string
+
+def ApproximatePatternMatching(pattern, text, d): #Output: All starting positions where Pattern appears as a substring of Text with at most d mismatches
     # Find all approximate occurrences of a pattern in text
     #retorna as posições iniciais de cada padrão mais frequente.
     n = len(text)
@@ -11,18 +13,10 @@ def ApproximatePatternMatching(pattern, text, d):
         if HammingDistance(pattern, text[i:i+k]) <= d:
             res.append(i)
             
-    return res # All starting positions where Pattern appears as a substring of Text with at most d mismatches
+    return res 
 
 if __name__ == "__main__":
-    
-    pattern = "CGGAC"
-    text = "ACTAGCACAGGTATTCTAACTGAGCCCGGGACCATTATGGGAAGAGATGTACGAAGCTGTTTCTTAACTTTCTTTAAGTATTCACCTCCCGAGTTAGCCACTATCATAAGTTCGGGAATCACGTCCGGTCCGTAATATCCGTTGGTCAGATGCCTATGACCCTCGCTCCGACTTTGTCGGGATATATGGCTGATTATGACGGCTCAATGATTAGATGGAACAAGATTGAGTTCGCCTAAGGAATAGAGAAATCTCCGAACACGCAATAGCACATTCTTGAATCTAGTTTCCCAAATCTCAACCTTACGGACCCAAGCTCTATACAAACCACGGCAGGAGAGGACCTTTCGGCGGAAACGGGACCCTGGACCTCGAAGGACC"
-    d = 3
-    
-    res = ApproximatePatternMatching("ATTCTGGA", "CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT", d)
-    
-    #for val in res:
-    #   print(val, end = ' ')
+    res = ApproximatePatternMatching("ATTCTGGA", "CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT", d) # 6 7 26 27
     print(res)
         
     pass
